@@ -7,7 +7,7 @@ int main(){
         for(i=0;i<x;i++)
                 printf("Hello World");
 
-        printf("Hello World printed %d times",x);
+        printf("Hello World printed %d times now",x);
 
         return 0;
 
