@@ -2,6 +2,23 @@ language: c
 compiler:
   - gcc
 
+env:
+  global:
+   # The next declration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "FfdHMlqcsQEzljCoLffMTjrzpUzkuJPvyAO+UIkfxsPNP2nJ9hOkMwqregIXIU7kL2pEte8XEcvr5zJJFELRAnQHFTHVQhr9taoTWCfOsffkXBBl8fX40Gh6619nmu+/A6RXv1463dDiPcuKr9uz99aMz+sFpTmIui1ANqr2oII="
+
+addons:
+  coverity_scan:
+    project:
+      name: "daksheshvyaslive/MyHelloWorld"
+      description: "Your project description here"
+    notification_email: daksheshvyas@live.com
+    build_command_prepend:
+    build_command: make -j4 
+    branch_pattern: master
+
+
 script:
   - make -j4   
  # - if [ "${COVERITY_SCAN}" = '1' ]; then eval "$COVERITY_SCAN_BUILD"; else eval "$STANDARD_BUILD_COMMAND"; fi
